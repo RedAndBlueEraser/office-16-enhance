@@ -25,6 +25,7 @@ Param(
     [bool]$Updatereliabilitydata = $OptionalOptimization.isPresent,
     [bool]$Shownfirstrunoptin = $OptionalOptimization.isPresent,
     [bool]$Skydrivesigninoption = $OptionalOptimization.isPresent,
+    [bool]$Signinoptions = $OptionalOptimization.isPresent,
     [bool]$Bootedrtm = $OptionalOptimization.isPresent,
     [bool]$Disablemovie = $OptionalOptimization.isPresent,
     [bool]$Controllerconnectedservicesenabled = $OptionalOptimization.isPresent,
@@ -91,6 +92,12 @@ if ($Skydrivesigninoption) {
     # HKEY_CURRENT_USER\software\policies\microsoft\office\16.0\common\general\skydrivesigninoption => Disabled
     reg add "HKEY_CURRENT_USER\Software\Microsoft\Office\16.0\Common\General" /v skydrivesigninoption /t REG_DWORD /d 0 /f
     reg add "HKEY_CURRENT_USER\Software\Policies\Microsoft\Office\16.0\Common\General" /v skydrivesigninoption /t REG_DWORD /d 0 /f
+}
+if ($Signinoptions) {
+    # Block signing into Office
+    # HKEY_CURRENT_USER\software\policies\microsoft\office\16.0\common\signin\signinoptions => 3. None allowed (3)
+    reg add "HKEY_CURRENT_USER\Software\Microsoft\Office\16.0\Common\SignIn" /v signinoptions /t REG_DWORD /d 3 /f
+    reg add "HKEY_CURRENT_USER\Software\Policies\Microsoft\Office\16.0\Common\SignIn" /v signinoptions /t REG_DWORD /d 3 /f
 }
 
 # Improve Proofing Tools
