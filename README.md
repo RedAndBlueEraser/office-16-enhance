@@ -17,4 +17,4 @@ The PowerShell script can be run with the following command line switches:
 - `-OptionalOptimization`: By default, the standard optimisation only changes settings that should not impact any functionality. For example: turning off telemetry data collection, and tightening privacy controls. Optional optimisation goes further by disabling online services and first run experiences.
 
 ## Author
-Harry Wong (RedAndBlueEraser)
+RedAndBlueEraser
